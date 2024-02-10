@@ -1,3 +1,5 @@
+import { LitElement, html } from 'lit';
+
 /**
  * @callback TransformFunction
  * @param {HTMLElement} element
@@ -80,11 +82,13 @@ const imgTransformer = {
 const twitterTransformer = {
   selector: 'a[href*="twitter.com/"]',
   transform: (link) => {
-    const twitterStatusRegex = /twitter\.com\/(\w+)\/status\/(\d+)/;
-    const match = link.href.match(twitterStatusRegex);
+    const match = link.href.match(/twitter\.com\/(?:#!\/)?\w+\/status(?:es)?\/(\d+)/);
     if (!match) return null;
+    const tweetId = match[1];
+    const twitterEmbed = document.createElement('twitter-embed-lit');
+    twitterEmbed.setAttribute('tweet-id', tweetId);
 
-    return link;
+    return twitterEmbed;
   },
 };
 
@@ -114,3 +118,47 @@ export const applyAll = (html) => {
   }
   return doc.body.innerHTML;
 };
+
+
+class TwitterEmbedLit extends LitElement {
+  static get tag() {
+    return "twitter-embed-lit";
+  }
+  constructor() {
+    super();
+    this.tweetId = null;
+  }
+  static get properties() {
+    return {
+      tweetId: {
+        type: String,
+        attribute: "tweet-id"
+      },
+    };
+  }
+  render() {
+    return html`
+      <div
+        class="twitter-tweet twitter-tweet-rendered"
+        style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"
+      >
+        <iframe
+          sandbox="allow-same-origin allow-scripts"
+          scrolling="no"
+          frameborder="0"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen
+          style="position: static; visibility: visible; height: 498px; display: block; flex-grow: 1;"
+          title="Twitter Tweet"
+          src="https://platform.twitter.com/embed/index.html?dnt=true&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=${this
+        .tweetId}"
+          data-tweet-id="${this.tweetId}"
+        >
+        </iframe>
+      </div>
+    `;
+  }
+}
+
+customElements.define(TwitterEmbedLit.tag, TwitterEmbedLit);

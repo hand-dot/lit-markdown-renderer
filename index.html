@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    ></script>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>markdownRenderer</title>
-    <script
-      type="module"
-      src="/src/custom-elements/markdownRenderer.js"
-    ></script>
-  </head>
-  <body>
-    <markdown-renderer id="md"></markdown-renderer>
-    <script>
-      const md = document.getElementById('md');
-      md.setAttribute(
-        'markdown',
-        `
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>markdownRenderer</title>
+  <script type="module" src="/src/custom-elements/markdown-renderer.js"></script>
+</head>
+
+<body>
+  <markdown-renderer id="md"></markdown-renderer>
+  <script>
+    const md = document.getElementById('md');
+    md.setAttribute(
+      'markdown',
+      `
 ブログの記事内でいろいろウィジェットを使えるようにしています。それの実験用の記事です。
 
 
@@ -64,7 +58,8 @@
 [https://twitter.com/labelmake/status/1755485927391310272](https://twitter.com/labelmake/status/1755485927391310272)
 
 `
-      );
-    </script>
-  </body>
+    );
+  </script>
+</body>
+
 </html>
