@@ -1,0 +1,19 @@
+{
+  "name": "vite-lit-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "highlight.js": "^11.9.0",
+    "lit": "^3.1.2",
+    "marked": "^12.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.1.0"
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>markdownRenderer</title>
+    <script
+      type="module"
+      src="/src/custom-elements/markdownRenderer.js"
+    ></script>
+  </head>
+  <body>
+    <markdown-renderer id="md"></markdown-renderer>
+    <script>
+      const md = document.getElementById('md');
+      md.setAttribute(
+        'markdown',
+        `
+ブログの記事内でいろいろウィジェットを使えるようにしています。それの実験用の記事です。
+
+
+## 動画の埋め込み
+
+
+### MP4
+
+
+[Untitled.mp4](https://prod-files-secure.s3.us-west-2.amazonaws.com/e4d339b7-ad9c-4da1-8bb6-cf451b5d10b8/c5c71fe9-bfce-43ac-9eb1-f5e96f340d0e/Untitled.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240210%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240210T024355Z&X-Amz-Expires=3600&X-Amz-Signature=ab5cba2025a48798910b687f6621187f5cca6c55c88ab80a9114e02e7110a636&X-Amz-SignedHeaders=host&x-id=GetObject)
+
+
+### Youtube
+
+
+[https://www.youtube.com/watch?v=up8ODGFWgFg&t=218s&ab_channel=NPRMusic](https://www.youtube.com/watch?v=up8ODGFWgFg&t=218s&ab_channel=NPRMusic)
+
+
+## 画像の埋め込み
+
+
+### png
+
+
+![Untitled-2023-02-01-1019.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/e4d339b7-ad9c-4da1-8bb6-cf451b5d10b8/d32747ea-8b5b-4217-aa62-ac81652c06c2/Untitled-2023-02-01-1019.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240210%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240210T024355Z&X-Amz-Expires=3600&X-Amz-Signature=7651e35a996fb5cd81af410a9d83cf69342a9e35fca05654d250e03e8eadf9b8&X-Amz-SignedHeaders=host&x-id=GetObject)
+
+
+### GIF
+
+
+![CleanShot_2024-02-09_at_20.40.05.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/e4d339b7-ad9c-4da1-8bb6-cf451b5d10b8/f7b735c0-916f-493e-a32f-c9d088732942/CleanShot_2024-02-09_at_20.40.05.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240210%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240210T024355Z&X-Amz-Expires=3600&X-Amz-Signature=a57078cc0ad44a15b09af621f7bfa25f99773de3f8fa7fdf7beef76c3eea0533&X-Amz-SignedHeaders=host&x-id=GetObject)
+
+
+## その他
+
+
+### ツイッター
+
+
+[https://twitter.com/labelmake/status/1755485927391310272](https://twitter.com/labelmake/status/1755485927391310272)
+
+`
+      );
+    </script>
+  </body>
+</html>
